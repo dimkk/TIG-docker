@@ -13,14 +13,6 @@ services:
       - "8092:8092/udp"
       - "8094:8094"
       - "8125:8125/udp"
-  grafana:
-    image: grafana/grafana:latest
-    volumes:
-      - ./data/grafana:/var/lib/grafana
-    links:
-      - influxdb
-    ports:
-      - "3000:3000"
   # Define an InfluxDB service
   influxdb:
     image: influxdb:latest
@@ -34,7 +26,7 @@ services:
     volumes:
       - ./data/chronograf:/var/lib/chronograf
     ports:
-      - "10000:10000"
+      - "8888:8888"
     links:
       - influxdb
   # Define a Kapacitor service
