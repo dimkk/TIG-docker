@@ -6,6 +6,7 @@ services:
     image: telegraf:latest
     volumes:
       - ./etc/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     links:
       - influxdb
     ports:
